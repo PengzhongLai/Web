@@ -1,0 +1,175 @@
+/* 公共部分 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 14px;
+    color: #7575ff;
+}
+
+/* 公用元素 */
+a {
+    text-decoration: none;
+}
+
+/* 标签 */
+label {
+    display: inline-block; /* 设置width */
+    width: 70px;
+
+    user-select: none; /* 不允许选中文字 */
+    text-align-last: justify; /*只有一行时分散对齐*/
+    color: darkgrey;
+}
+
+/* 文本框 */
+input[type="tel"],
+input[type="text"],
+input[type="password"] {
+    padding-left: 8px;
+    width: 240px;
+
+    border: none;
+    border-left: 1px dotted royalblue; /*仅留左边框*/
+    outline: none;
+}
+
+input::placeholder {
+    font-size: 12px;
+    color: rgba(0, 0, 0, .4);
+}
+
+/*复选框*/
+input[type="checkbox"] {
+    zoom: 1.3;
+    margin: 0 3px;
+}
+
+/*按钮*/
+.btn {
+    width: 100%;
+
+    text-align: center;
+    line-height: 2.4em;
+    font-size: 1rem;
+    color: #ffffff;
+    user-select: none; /* 不允许选中文字 */
+
+    background-color: #ff768b;
+    border-radius: 28px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    box-shadow: 0 0 5px rgba(255, 153, 153, 0.5);
+}
+
+.btn:active {
+    box-shadow: 0 0 5px #beff8e;
+}
+
+.icon {
+    display: none;
+    width: 22px;
+    margin-left: auto; /*尽可能靠右*/
+    margin-right: 5px;
+}
+
+/* 头部 */
+header h1 {
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 2em;
+    font-weight: 350;
+}
+
+/* 大标题 */
+form {
+    width: 350px;
+    margin: 20px auto;
+}
+
+form .form-group,
+form .form-check {
+    height: 40px;
+    margin-bottom: 18px;
+    position: relative;
+
+    /* 实现垂直居中 */
+    display: flex;
+    align-items: center;
+}
+
+/* 输入单元 */
+form .form-group {
+    padding-left: 10px;
+    border: 1px solid #aaaaff;
+    border-radius: 5px;
+}
+
+/* 除了有.form-group-check的div.form-group */
+form .form-group:hover {
+    box-shadow: 0 1px 1px #55aa7f;
+}
+
+/*输入验证码文本框*/
+input#vcodeText {
+    width: 50px;
+}
+
+/* 验证码图片div */
+.img-vcode {
+    margin-left: auto; /*尽量靠右, flex中, float: right不起作用*/
+    margin-right: 2px;
+    width: 70px;
+
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0); /*透明*/
+
+    color: rgb(255, 153, 153);
+    text-align: center;
+    line-height: 30px;
+    font-size: 1rem;
+    user-select: none; /* 不允许选中文字 */
+
+    cursor: pointer;
+}
+
+/* .form-group所在div有error类时 */
+form .form-group.error {
+    border: 1px solid #ff0000;
+    box-shadow: 0 0 3px #ff5d00;
+}
+
+/*有错时显示图标*/
+form .form-group.error .wrong {
+    display: block;
+}
+
+/*输入正确时时显示图标*/
+form .form-group.success .right {
+    display: block;
+}
+
+/* 错误提示 */
+form .tips {
+    position: absolute;
+    left: 102%; /*右边显示*/
+    top: 50%;
+    transform: translateY(-50%); /*垂直居中*/
+
+    white-space: nowrap;
+    font-size: .7rem;
+    color: #ff0000;
+
+    display: none; /*默认隐藏*/
+}
+
+/* .form-group所在div有error类时 */
+form .form-group.error .tips,
+form .form-check.error .tips {
+    display: block; /*有错时显示*/
+}

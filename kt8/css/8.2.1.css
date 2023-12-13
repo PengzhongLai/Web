@@ -1,0 +1,206 @@
+/*公共部分*/
+* {
+    margin: 0;
+    padding: 0;
+    font: 12px '宋体'
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+*:focus {
+    outline: none;
+}
+
+/*公共部分*/
+.clearfix:after {
+    display: block;
+    clear: both;
+    content: "";
+    visibility: hidden;
+    height: 0;
+}
+
+/* .clearfix{clear: both;} */ /*次优解：解决内部float包含问题*/
+
+/*整体*/
+body {
+    background-color: #5EADCC;
+    color: #666;
+}
+
+.container {
+    width: 997px;
+    margin: 0 auto;
+}
+
+/*997px是约定俗成*/
+
+/*标题*/
+.logo-title {
+    margin-top: 10px;
+    font-size: 22px;
+    color: #ffeef1;
+    font-weight: bold;
+}
+
+.logo-description {
+    color: #fffdd5
+}
+
+/*头部部分*/
+header {
+    margin: 10px 0;
+    background: linear-gradient(90deg, #3985BF, #b9b9b9);
+    border-radius: 8px;
+}
+
+/*菜单部分*/
+.nav-menu {
+    float: left;
+}
+
+.nav-bar li {
+    float: left;
+}
+
+/*菜单水平*/
+.nav-bar li a {
+    padding: 0 15px;
+    line-height: 35px;
+    font-weight: bold;
+    font-size: 12px;
+    color: #fff;
+    border-right: 1px solid #999999;
+}
+
+/*去除最后一个菜单的分割线*/
+.nav-bar li:last-child a {
+    border-right: none;
+}
+
+.nav-bar li a:hover {
+    color: #7f397b;
+}
+
+/*搜索部分*/
+.div-search {
+    float: right;
+}
+
+.input-search, .btn-search {
+    height: 28px;
+    border: none;
+    border-radius: 5px;
+}
+
+.input-search {
+    width: 177px;
+    margin-top: 3px;
+    padding-left: 5px;
+}
+
+.btn-search {
+    width: 45px;
+    margin-right: 6px;
+    color: #00557f;
+    cursor: pointer;
+}
+
+.btn-search:hover {
+    color: #55aa7f;
+}
+
+/* 主体部分 */
+article {
+    padding: 10px 20px;
+    width: 70%;
+    float: left;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .4);
+}
+
+.article-title {
+    font: 20px bold;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.article-image {
+    max-width: 100%; /*限制大图片*/
+    margin: 0 auto; /*小图片居中显示*/
+    display: block; /*使图片按照块级元素显示*/
+
+    border-radius: 15px;
+    border: 1px solid darkorange;
+}
+
+/*诗词*/
+.row-peom {
+    margin-top: 12px;
+}
+
+.peom-title {
+    line-height: 26px;
+    font-weight: bold;
+}
+
+.peom-info {
+    color: #006400;
+    text-indent: 2em;
+    line-height: 24px;
+}
+
+.row-peom li {
+    line-height: 24px;
+    text-indent: 2em;
+}
+
+/* 侧边栏 */
+aside {
+    width: 24%;
+    float: right;
+}
+
+.nav-widget {
+    background: #fff;
+    margin-bottom: 20px;
+    padding: 8px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, .4);
+}
+
+.widget-title {
+    font-weight: bold;
+    line-height: 26px;
+    border-bottom: solid 1px #55aaff;
+}
+
+/*新闻标题*/
+.nav-widget li {
+    padding: 12px 0 5px 0;
+    border-bottom: solid 1px #eee;
+
+    /*文字过多时显示...*/
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.nav-widget li a {
+    color: #006400;
+}
+
+/* 脚部 */
+footer p {
+    padding: 10px 5px; /*上下填充10px，左右5px*/
+    color: gainsboro;
+    text-align: center;
+    font-size: 10px;
+}

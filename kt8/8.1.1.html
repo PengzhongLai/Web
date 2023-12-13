@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<style>
+    .top, .nav, .middle, .footer {
+        width: 997px;
+        margin: 0 auto;
+    }
+
+    .top {
+        height: 80px;
+        background-color: #ddd;
+    }
+
+    .nav {
+        height: 40px;
+        background-color: #55aa7f;
+    }
+
+    .footer {
+        height: 40px;
+        background-color: #fc0;
+    }
+
+    .middle {
+        overflow: auto;
+        border: 1px solid deeppink;
+        background-color: #ffaa7f;
+    }
+
+    .content {
+        width: 33%;
+        height: 500px;
+        float: left;
+    }
+
+    .content:nth-child(2) {
+        background-color: #aaaaff;
+    }
+</style>
+
+<body>
+
+<div class="top">div:top</div>
+<div class="nav">div:nav</div>
+
+<div class="middle">
+    <div class="content"> div列表:A</div>
+    <div class="content"> div列表:B</div>
+    <div class="content"> div列表:C</div>
+</div>
+
+<div class="footer">div:footer</div>
+</body>
+</html>

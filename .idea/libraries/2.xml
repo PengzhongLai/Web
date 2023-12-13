@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="期末试卷">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/上交大《Web前端设计基础教程》（5662-1）教学资料包20230320/资料包/期末试卷/A卷.zip!/" />
+      <root url="jar://$PROJECT_DIR$/上交大《Web前端设计基础教程》（5662-1）教学资料包20230320/资料包/期末试卷/B卷.zip!/" />
+      <root url="jar://$PROJECT_DIR$/上交大《Web前端设计基础教程》（5662-1）教学资料包20230320/资料包/期末试卷/C卷.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

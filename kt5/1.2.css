@@ -1,0 +1,67 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+	font-size: 16px;font-family: '楷体'
+}
+
+body{
+	background: url(5G.jpg);background-repeat: no-repeat;
+}
+
+h1{
+	font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
+	font-size: 32px;
+	color: aqua;
+	text-align: center;
+	letter-spacing: 1em;
+}
+
+h2{
+	font-size: 26px; color: darkcyan; text-align: center;
+}
+
+h3{
+	font-size: 20px; color: #74ff00;
+}
+
+p{
+	text-indent: 2em;
+}
+
+.li-poem{
+	line-height: 1.5em;
+}
+
+a{
+	font-size: 14px;
+	color: #55557f;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+a:hover{
+	color:rosybrown;
+}
+
+ul{
+	border:2px dotted #008000; background-color: #7cd1ff;
+}
+
+.p-poem{
+	color: navy;
+	border-bottom: 1px dotted #008000;
+}
+
+.title-addon{
+	color: #008B8B;
+}
+
+.poem-strong{
+	color: plum;
+}
+
+.photo{
+	width: 120px;
+	border-radius:10px;
+	border: 1px solid #ffaaff;
+}

@@ -1,0 +1,48 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: '楷体';
+}
+
+.main {
+    margin: 1em auto;
+    width: 960px;
+}
+
+/* grid布局：4等分 */
+.pj {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1em;
+}
+
+.month {
+    font-size: .9rem;
+    border-collapse: collapse;
+}
+
+.month td {
+    border: 1px solid #DCDCDC;
+    text-align: center;
+    height: 1.8em;
+}
+
+.month caption {
+    background: rgba(0, 255, 221, 0.6);
+    line-height: 1.8;
+}
+
+.year {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.this-month,
+.today {
+    font-weight: bold;
+    text-decoration: underline;
+    background-color: #ff6b6b;
+}

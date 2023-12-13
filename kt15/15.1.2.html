@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>地球</title>
+
+    <style>
+        #canvasSun {
+            margin: 0 auto;
+            display: block;
+            background-color: #000;
+        }
+
+        .toolbar {
+            text-align: center;
+            margin-top: 1em;
+        }
+
+        button {
+            width: 70px;
+            height: 30px;
+        }
+
+    </style>
+</head>
+<body onload="init()">
+<!-- 画布 -->
+<canvas id="canvasSun" width="600" height="460">
+    您的浏览器不支持canvas
+</canvas>
+
+<div class="toolbar">
+    <button onclick="start()">开始</button>
+    <button onclick="gameOver()">暂停</button>
+</div>
+
+<script>
+    const canvasSun = document.querySelector("#canvasSun");//全局使用的画布 querySelector() 方法返回文档中匹配指定 CSS 选择器的一个元素。
+    const brush = canvasSun.getContext("2d");//全局使用的2d绘画对象
+    const Earth_Radios = 200;//地球轨道半径，常量
+
+    function init() {
+        //(0,0)坐标映射到画布中心，(0,0)默认在左上角
+        brush.translate(canvasSun.width / 2, canvasSun.height / 2);
+
+        draw();//绘制静态的图形
+    }
+
+    //开始动画
+    let timerSun;//定时器索引
+
+    function start() {
+        clearInterval(timerSun);//先停止
+        timerSun = setInterval("draw()", 20);
+    }
+
+    //停止动画
+    function gameOver() {
+        clearInterval(timerSun); //使用定时器索引
+    }
+
+    //每次动画都要先清除原来的内容。重画轨道，重画太阳，重画地球。
+    function draw() {
+        clearCanvas();
+        drawTrack();
+        drawSun();
+        drawEarth();
+    }
+
+    //清除画布中已绘制元素
+    function clearCanvas() {
+        //clearRect(x,y,width,height)，参数为清理区域，左上坐标、画布宽、高
+        //(0,0)坐标在中心，向下为正。左上角为负数
+        brush.clearRect(-canvasSun.width / 2, -canvasSun.height / 2, canvasSun.width, canvasSun.height);
+    }
+
+    //画地球轨道，空心的圆	arc(x,y,r,sAngle,eAngle)
+    //x	圆的中心的 x 坐标。y 圆的中心的 y 坐标。r圆的半径。
+    //sAngle 起始角，以弧度计。
+    //eAngle 结束角，以弧度计。
+    function drawTrack() {
+        brush.beginPath();
+
+        brush.strokeStyle = "#FFF";//线条颜色
+        brush.lineWidth = 1;//线条粗细
+        brush.arc(0, 0, Earth_Radios, 0, 2 * Math.PI);//起始角0，结束角2*Math.PI,表示整个圆
+        brush.stroke();
+
+        brush.closePath();
+    }
+
+    //画太阳，填充的圆
+    function drawSun() {
+        brush.beginPath();
+
+        brush.fillStyle = '#F00';//填充色
+        //画圆，2*Math.PI表示整圆，1周
+        brush.arc(0, 0, 30, 0, 2 * Math.PI);
+        brush.fill();
+
+        brush.closePath();
+    }
+
+    //地球圆周运行动画。
+    //原理：地球的坐标不变。每次画布偏转，在新坐标系下画地球。地球随着画布偏转
+    //画布，先保存原来的坐标系->偏转->画地球->画布还原
+    let earthRadian = 0;//记录地球在圆周上偏转的弧度，实际上是画布偏转
+
+    function drawEarth() {
+        brush.save();
+        brush.beginPath();
+
+        brush.fillStyle = 'blue';//填充色
+        brush.rotate(earthRadian);//画布偏转角度
+        brush.arc(0, -Earth_Radios,10,0,2*Math.PI);//地球坐标不变化。-Earth_Radius表示在正上方，10是地球半径
+        brush.fill();
+
+        brush.closePath();//还原保存过的画布状态
+        brush.restore();
+
+        moveRadian();//偏转弧度增加
+    }
+
+    //修改地球在圆周上偏转的弧度earthRadian
+    //实际上是画布偏转的弧度
+    function moveRadian(){
+        //每次偏转的弧度，0.01可调
+        //运行了一个圆周，earthRadian复位，重新累计
+        earthRadian = earthRadian >= 2 * Math.PI ? 0 : earthRadian + 0.01;
+
+    }
+</script>
+
+</body>
+</html>

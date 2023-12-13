@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>111</title>
+
+</head>
+<body>
+
+<script>
+    const ROWS = 9;
+
+    let strTable = "<table>";
+    strTable += "<caption>九九乘法表</caption>";
+
+    //strTable += <caption>乘法表</caption>
+    for (let i = 1; i <= ROWS; i++) { //行
+        strTable += "<tr>" //表格中的一行
+        for (let j = 1; j <= ROWS; j++) { //列
+            const result = i * j;
+            const expression = `${i}*${j} = ${result}`;
+
+            if (result % 5 == 0) {
+                strTable += `<td>${expression}</td>`;
+            } else {
+                strTable += `<td>${expression}</td>`;
+            }
+        }
+
+        strTable += "</tr>";
+    }
+    strTable += "</table>";//表格结束
+    console.log(strTable);//控制台输出构造的字符串
+    document.write(strTable); //在当前元素中输出
+</script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>CSS综合项目</title>
+    <link href="css/8.2.1.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div class="container">
+    <h1 class="logo-title">
+        扬州景点<span class="logo-description">&nbsp;-&nbsp;骑鹤下扬州</span>
+    </h1>
+
+    <header class="clearfix"><!--解决内部float问题-->
+        <nav class="nav-menu">
+            <ul class="nav-bar">
+                <li><a href="#">首页</a></li>
+                <li><a href="#">文化</a></li>
+                <li><a href="#">美食</a></li>
+                <li><a href="#">文物</a></li>
+            </ul>
+        </nav>
+
+        <div class="div-search">
+            <input type="search" class="input-search" maxlength="20" placeholder="尽在扬州..."/>
+            <button class="btn-search">查询</button>
+        </div>
+
+        <!-- <div class="clearfix"></div> --> <!--次优解：解决内部float问题-->
+    </header>
+
+    <!-- 中间部分 -->
+    <section class="main clearfix">
+        <article>
+            <h1 class="article-title">吟唱瘦西湖</h1>
+
+            <div>
+                <img src="images/river.jpg" class="article-image"/>
+            </div>
+
+            <div class="row-peom">
+                <h4 class="peom-title">扬州慢·淮左名都</h4>
+
+                <p class="peom-info">
+                    淳熙丙申至日，予过维扬。
+                    夜雪初霁，荠麦弥望。
+                    入其城，则四顾萧条，寒水自碧，暮色渐起，戍角悲吟。
+                    予怀怆然，感慨今昔，因自度此曲。千岩老人以为有“黍离”之悲也。
+                </p>
+                <ul>
+                    <li>淮左名都，竹西佳处，解鞍少驻初程。</li>
+                    <li>过春风十里，尽荠麦青青。</li>
+                    <li>自胡马窥江去后，废池乔木，犹厌言兵。</li>
+                    <li>渐黄昏，清角吹寒，都在空城。</li>
+                    <li>杜郎俊赏，算而今、重到须惊。纵豆蔻词工，青楼梦好，难赋深情。</li>
+                    <li>二十四桥仍在，波心荡、冷月无声。</li>
+                    <li><u>念桥边红药，年年知为谁生</u>？</li>
+                </ul>
+            </div>
+
+            <div class="row-peom">
+                <h4 class="peom-title">雪落瘦西湖</h4>
+                <ul>
+                    <li>词赋不闻久，人闲二月初。</li>
+                    <li>风吹梅香冷，雪落瘦西湖。</li>
+                    <li>入水清且浅，梵唱有若无。</li>
+                    <li>寂寂共谁语？不识旧时路。</li>
+                </ul>
+            </div>
+
+            <div class="row-peom">
+                <h4 class="peom-title">江都竹枝词</h4>
+                <ul>
+                    <li>邗沟春水碧如油，到处春风足逗留。</li>
+                    <li>二十四桥箫管歇，犹留明月满扬州。</li>
+                </ul>
+            </div>
+
+            <div class="row-peom">
+                <h4 class="peom-title">扬州竹枝词</h4>
+                <ul>
+                    <li>二分明月一声箫，半属扬州廿四桥。</li>
+                    <li>别有风情忘不得，载花载酒木栏桡。</li>
+                </ul>
+            </div>
+
+        </article>
+
+        <aside>
+            <nav class="nav-widget">
+                <h4 class="widget-title">知名景点</h4>
+                <ul>
+                    <li><a href="#">个园</a></li>
+                    <li><a href="#">何园</a></li>
+                    <li><a href="#">瘦西湖</a></li>
+                </ul>
+            </nav>
+
+            <nav class="nav-widget">
+                <h4 class="widget-title">扬工院新闻</h4>
+                <ul>
+                    <li><a href="#">信息工程学院喜获大奖</a></li>
+                    <li><a href="#">新专业获学生认可</a></li>
+                    <li><a href="#">WEB前端就业率创新高</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- <div class="clearfix"></div> --><!--次优解：解决内部float问题-->
+    </section><!-- 中间部分 -->
+
+    <footer>
+        <p>@版权所有：111111</p>
+    </footer>
+</div>   <!-- container  -->
+</body>
+</html>

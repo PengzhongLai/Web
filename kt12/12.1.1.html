@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <link rel="stylesheet" href="ZC.css">
+</head>
+<body>
+
+<header>
+    <h1>用户注册</h1>
+</header>
+
+<form>
+    <div class="form-group">
+        <label for="userName">账号：</label>
+        <input
+                type="tel"
+                maxlength="11"
+                id="userName"
+                placeholder="手机号码"
+        >
+
+        <img src="./image/right.png" class="icon right">
+        <img src="./image/wrong.png" class="icon wrong">
+        <div class="tips">wrong!</div><!--放置错误信息-->
+    </div>
+
+    <div class="form-group">
+        <label for="pwd">密码：</label>
+        <input type="password"
+               maxlength="15"
+               id="pwd"
+               placeholder="6-15位"
+        >
+
+        <img src="./image/right.png" class="icon right">
+        <img src="./image/wrong.png" class="icon wrong">
+        <div class="tips">wrong!</div><!--放置错误信息-->
+    </div>
+
+    <div class="form-group">
+        <label for="pwdConfirm">确认密码：</label>
+        <input type="password"
+               maxlength="15"
+               id="pwdConfirm"
+               placeholder="与密码相同"
+        >
+
+        <img src="./image/right.png" class="icon right">
+        <img src="./image/wrong.png" class="icon wrong">
+        <div class="tips">wrong!</div><!--放置错误信息-->
+    </div>
+
+    <div class="form-group">
+        <label for="vcodeText">验证码：</label>
+        <input type="text" maxlength="4" id="vcodeText">
+
+        <div class="img-vcode" id="vcodeImg"></div>
+
+        <div class="tips">wrong!</div><!--放置错误信息-->
+    </div>
+
+    <div class="form-check">
+        <input type="checkbox" class="check" id="checkAgree">
+        <span>阅读并同意<a href="">《用户协议》</a></span>
+
+        <div class="tips">wrong!</div><!--放置错误信息-->
+    </div>
+
+    <!--使用div模拟按钮-->
+    <div class="btn" id="btnReg">立即注册</div>
+</form>
+<script src="yzm.js"></script>
+</body>
+</html>

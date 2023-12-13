@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>笑脸</title>
+
+    <style>
+        #canvasFace {
+            border: 1px solid #23527C;
+            margin: 0 auto;
+            display: block;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<canvas id="canvasFace" width="300" height="300">
+    您的浏览器不支持canvas
+</canvas>
+
+<script>
+    const canvas = document.querySelector('#canvasFace');
+    const brush = canvas.getContext('2d');
+
+    brush.translate(canvas.width / 2, canvas.height / 2);//把(0, 0)设置到画布中心
+
+    //脸
+    brush.beginPath();
+    brush.arc(0, 0, 100, 0, 2 * Math.PI);
+    brush.stroke();
+    brush.closePath();
+
+    //嘴巴
+    brush.beginPath();
+    brush.arc(0, 0, 70, 0, Math.PI);
+    brush.stroke();
+    brush.closePath();
+
+    //左眼
+    brush.beginPath();
+    brush.arc(-50, -40, 20, 0, 2 * Math.PI);
+    brush.fill();
+    brush.closePath();
+
+    //右眼
+    brush.beginPath();
+    brush.arc(50, -40, 20, 0, 2 * Math.PI);
+    brush.fill();
+    brush.closePath();
+
+</script>
+
+</body>
+</html>

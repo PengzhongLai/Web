@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="微课">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/上交大《Web前端设计基础教程》（5662-1）教学资料包20230320/资料包/微课/js.zip!/" />
+      <root url="jar://$PROJECT_DIR$/上交大《Web前端设计基础教程》（5662-1）教学资料包20230320/资料包/微课/html.zip!/" />
+      <root url="jar://$PROJECT_DIR$/上交大《Web前端设计基础教程》（5662-1）教学资料包20230320/资料包/微课/css.zip!/" />
+      <root url="jar://$PROJECT_DIR$/上交大《Web前端设计基础教程》（5662-1）教学资料包20230320/资料包/微课/相关素材与课件.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>牛马</title>
+    <style>
+        body {
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body style="overflow: hidden;">
+<canvas id="matrix"></canvas>
+
+<script>
+    //画布占满整个屏幕
+    const matrix = document.querySelector('#matrix');
+    matrix.width = window.screen.width;
+    matrix.height = window.screen.height;
+
+    const brush = matrix.getContext('2d');
+    //屏幕分成256行(足够多的行)，保存y坐标, 从顶部(0)开始
+    const yPositions = Array(256).fill(0);
+
+    setInterval("draw()", 40);
+
+    function draw() {
+        //每次刷一层半透明的“漆”，逐渐抹去已有的字母
+        brush.fillStyle = 'rgba(0, 0, 0, .05)';//背景颜色, 黑色，透明度.05
+        brush.fillRect(0, 0, matrix.width, matrix.height);
+
+        brush.fillStyle = '#003cff';	//字母颜色
+
+        for (let i = 0; i < yPositions.length; i++) {
+            //随机字母, 使用ASCII(A:65, Z: 90)
+            const text = String.fromCharCode(65 + Math.floor(Math.random() * 26));
+
+            //每隔10px画一个字母，每次打印一行
+            brush.fillText(text, i * 10, yPositions[i]);
+
+            //每行至少行走屏幕的一半(高度随机)
+            if (yPositions[i] > matrix.height / 2 + Math.random() * matrix.height) {
+                yPositions[i] = 0; //超出范围，从顶部再次开始
+            } else {
+                yPositions[i] = yPositions[i] + 10; //每次下移10px
+            }
+        }//for
+    }//draw
+</script>
+
+</body>
+</html>

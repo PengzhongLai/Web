@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>万花筒</title>
+
+    <style>
+        .tools {
+            text-align: center;
+        }
+
+        table {
+            margin: 1em auto;
+            border-collapse: collapse;
+        }
+
+        td {
+            height: 10px;
+            width: 10px;
+            border: 1px solid #333;
+        }
+    </style>
+</head>
+
+<body onload="create()">
+<table id="table"></table>
+
+<div class="tools">
+    <button onclick="start()" id="start">开始</button>
+    <button onclick="start()" id="stop">结束</button>
+</div>
+<script>
+    const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple', '#ccc'];
+    const ROWS = 20; //列数
+    const COLS = 20; //行数
+    const POINTS = 100; //方块数
+    const table = document.querySelector("#table");
+
+    let timeIndex; //动画索引
+
+    //画表格
+    function create() {
+        for (let row = 0; row < ROWS; row++) {
+            const tr = table.insertRow(-1);//插入tr
+
+            for (let col = 0; col < COLS; col++) {
+                tr.insertCell(-1);//插入td
+            }
+        }
+    }
+
+    //擦除表格中颜色
+    function clearTable() {
+        for (let row = 0; row < ROWS; row++) {
+            for (let col = 0; col < COLS; col++) {
+                //背景色为空
+                table.rows[row].cells[col].style.backgroundColor = "";
+            }
+        }
+    }
+
+    //画节点
+    function createNode() {
+        for (let i = 0; i < POINTS; i++) {
+            const x = Math.floor(Math.random() * COLS);
+            const y = Math.floor(Math.random() * ROWS);
+            const color = Math.floor(Math.random() * colors.length);
+
+            table.rows[y].cells[x].style.backgroundColor = colors[color];
+        }
+    }
+
+    //开始游戏
+    function start() {
+        timeIndex = setInterval(() => {
+            clearTable();
+            createNode();
+        }, 1000);
+    }
+
+    //停止
+    function stop() {
+        clearInterval(timeIndex);
+    }
+</script>
+</body>
+</html>

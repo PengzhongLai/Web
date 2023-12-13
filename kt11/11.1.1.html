@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>日历</title>
+
+    <link rel="stylesheet" href="rili.css">
+
+</head>
+<body>
+<div class="main">
+
+    <script>
+
+        /*
+         getDate 返回月中某天  例：d.getDate(); 结果：1(1号)
+         getDay 返回一周中的某天，范围[0,6]，周日为 0  例： d.getDay();  结果：5(周五)
+         getFullYear 返回年份  例：d.getFullYear();  结果：2020(年)
+         getHours 返回小时  例：d.getHours();  结果：19(点)
+         getMonth 返回月份，范围[0,11](与正常月份不同,所以当前月份应当加1)  例：d.getMonth  结果：4(5月)
+         tol.ocaleDateString 根据本地时间格式把日期部分转换为字符串  例：d.tol.ocaleDateString();  结果：2022-5-1
+         rol.ocaleTimeString 根据本地时间格式吧时间部分转化为字符串  例：d.rol.ocaleTimeString();  结果：19:20:10
+         toLocaleString 根据本地时间格式吧对象转换为字符串  例：d.toLocaleString  结果：2020-5-1 19:20:10
+        */
+
+        //const 用于声明一个或多个常量，声明时必须进行初始化，且初始化后值不可再修改
+        const DQday = new Date();//当前日期，全局变量，可在()中定义
+        const DQyear = DQday.getFullYear();//getFullYear 返回年份
+        const DQyue = DQday.getMonth() + 1;//getMonth 返回月份(全局) 范围0~11,月份从0开始,到11结束,与正常月份不同,所以当前月份应当加1
+        const todate = DQday.getDate();//getDate 返回月中某天
+
+        const yueall = 7 * 6; //格式，七行六列，每月的所有单元格
+        const week = ['一', '二', '三', '四', '五', '六', '日'];
+
+        showCalendar();//显示当年日历
+
+        //显示当年日历
+        function showCalendar() {
+            //输出标题
+            document.write(`<h1 class="year">${DQyear}年日历</h1>`);
+            //输出日历
+            console.log(calendarHtml()); //控制台
+            document.write(calendarHtml());
+        }
+
+        //日历生成函数
+        function calendarHtml() {
+            let text = "<div class= 'pj'>";
+
+            //拼接每个月份的表格HTML。12个月
+            for (let month = 1; month <= 12; month++)
+                text += monthHtml(month);
+
+            text += "</div>";
+
+            return text;
+        }
+
+        //每个月份的表格Html
+        function monthHtml(month) {
+            const firstDayOfWeek = getfirstDayOfWeek(month);// getfirstDayOfWeek 固定词 获取该月份的第一天是星期几，从这一天开始显示天
+            const lastDay = getMonthDayTotal(month);// getMonthDayTotal 固定词 获取月份共有几天
+
+            let text = '<table class="month">';//开始月份表格HTML
+            text += monthHeaderHtml(month); //表头HTML字符串
+
+            let day = 1;//月的每一天(1号到月末)
+            text += '<tr>'; /* 开始，不要忘记结尾 */
+            for (let i = 1; i <= yueall; i++) {
+                if (month === DQyue && day === todate) { //标记出今天
+                    text += `<td class='today'>${day}</td>`;
+                    day++; //下一天
+                } else if (i > firstDayOfWeek && day <= lastDay) {
+                    //正常的“天”，从每月第一天到最后一天
+                    text += `<td>${day}</td>`;
+                    day++;//下一天
+                } else {
+                    text += `<td></td>`; //其余格子空白
+                }
+
+                if (i % 7 === 0) {//每7天闭合一行tr, 同时开启下一行tr
+                    text += `</tr>`;
+                    text += `<tr>`;
+                }
+            }
+            text += '</table>'; //结束月份表格HTML
+            return text;
+        }
+
+        //获取月份第一天是星期几
+        //返回值，周日：0，周一：1...
+        function getfirstDayOfWeek(month) {
+            DQday.setFullYear(DQyear, month - 1, 0); //[0,11]
+            return DQday.getDay();
+        }
+
+        //获取月份共有几天，也就是最后一天是多少
+        function getMonthDayTotal(month) {
+            const end = new Date(DQyear, month, 0);
+            return end.getDate(); //获取最后一天的日期
+        }
+
+        //月份表格表头部分, 两行
+        //第一行，显示月份；第二行，显示星期排列
+        function monthHeaderHtml(month) {
+            let text = '';
+            if (month === DQyue) {
+                text = `<caption class= 'this-month'>${month}月</caption>`;
+            } else {
+                text = `<caption>${month}月</caption>`;
+            }
+
+            text += '<tr>';
+            for (const item of week) {
+                text += `<td>${item}</td>`;
+            }
+            text += `</tr>`;
+            return text;
+        }
+    </script>
+
+</div>
+</body>
+</html>
